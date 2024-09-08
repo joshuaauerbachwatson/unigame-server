@@ -30,7 +30,7 @@ import (
 func main() {
 	// Check environment variables
 	domainMissing := os.Getenv("AUTH0_DOMAIN") == ""
-	audienceMissing := os.Getenv("AUTHO_AUDIENCE") == ""
+	audienceMissing := os.Getenv("AUTH0_AUDIENCE") == ""
 	if domainMissing || audienceMissing {
 		fmt.Println("One or more environment variables were not set")
 		if domainMissing {
