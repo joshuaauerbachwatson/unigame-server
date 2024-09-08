@@ -1,0 +1,25 @@
+ingress:
+  rules:
+  - component:
+      name: server
+    match:
+      path:
+        prefix: /
+name: unigame
+region: nyc
+services:
+- envs:
+  - key: AUTH0_DOMAIN
+    scope: RUN_AND_BUILD_TIME
+    value: dev-qgbnpsat0jeusf7w.us.auth0.com
+  - key: AUTH0_AUDIENCE
+    scope: RUN_AND_BUILD_TIME
+    value: https://unigame.com
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: joshuaauerbachwatson/unigame-server
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  name: server
