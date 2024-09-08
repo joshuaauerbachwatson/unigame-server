@@ -24,15 +24,21 @@ import (
 
 	"net/http"
 	"os"
-
-	"github.com/joho/godotenv"
 )
 
 // Main entry point
 func main() {
-	// Load environment
-	if err := godotenv.Load(); err != nil {
-		fmt.Printf("Error loading the .env file: %v", err)
+	// Check environment variables
+	domainMissing := os.Getenv("AUTH0_DOMAIN") == ""
+	audienceMissing := os.Getenv("AUTHO_AUDIENCE") == ""
+	if domainMissing || audienceMissing {
+		fmt.Println("One or more environment variables were not set")
+		if domainMissing {
+			fmt.Println("AUTH0_DOMAIN is missing")
+		}
+		if audienceMissing {
+			fmt.Println("AUTH0_AUDIENCE is missing")
+		}
 		return
 	}
 
