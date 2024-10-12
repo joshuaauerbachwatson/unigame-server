@@ -48,7 +48,7 @@ func (c CustomClaims) Validate(ctx context.Context) error {
 func EnsureValidToken() func(next http.Handler) http.Handler {
 	issuerURL, err := url.Parse("https://" + os.Getenv("AUTH0_DOMAIN") + "/")
 	if err != nil {
-		fmt.Printf("Failed to parse the issuer url: %v", err)
+		fmt.Printf("Failed to parse the issuer url: %v\n", err)
 		os.Exit(1) // Terminal since this URL is effectively built in
 	}
 
@@ -72,7 +72,7 @@ func EnsureValidToken() func(next http.Handler) http.Handler {
 	}
 
 	errorHandler := func(w http.ResponseWriter, r *http.Request, err error) {
-		fmt.Printf("Encountered error while validating JWT: %v", err)
+		fmt.Printf("Encountered error while validating JWT: %v\n", err)
 
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusUnauthorized)
