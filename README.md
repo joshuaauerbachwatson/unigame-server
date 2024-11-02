@@ -13,6 +13,6 @@ The server supports
 - a keepalive mechanism to detect lost players
 - until all players have joined, a garbage collection mechanism that will delete incomplete games
 
-Games capable of being played by `unigame-server` are supported by a Swift (iOS and Mac) app framework called `unigame-core`.  This toolkit is essentially a skeletal game which has support for initiating games, chat, detecting when games are complete, and providing for an orderly succession of turns.  The main game-playing view is stubbed out, to be completed for individual games.
+Games capable of being played by `unigame-server` are supported by a Swift (iOS and Mac) app framework called `unigame`.  This toolkit is essentially a skeletal game which has support for initiating games, chat, detecting when games are complete, and providing for an orderly succession of turns.  The main game-playing view is stubbed out, to be completed for individual games.
 
-The server is operational and currently being used by a beta app called `anyCards`.  The `unigame-core` project is work in progress.  Eventually, `anyCards` will be redone to use `unigame-core`.
+The server is operational and currently being used by a beta app called `anyCards`.  The `unigame` (client) project is work in progress.  Eventually, `anyCards` will be redone to use `unigame`.
