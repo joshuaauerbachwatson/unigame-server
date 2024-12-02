@@ -205,12 +205,12 @@ func newWebSocket(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if !isValidGameToken(gameToken) {
-		indicateError(http.StatusBadRequest, "Game token is invalid on websocket upgrade", w)
+		indicateError(http.StatusBadRequest, "Game token is invalid", w)
 		return
 	}
 	playerOrder, ok := isValidPlayer(playerToken)
 	if !ok {
-		indicateError(http.StatusBadRequest, "Player id is invalid on websocket upgrade", w)
+		indicateError(http.StatusBadRequest, "Player id is invalid", w)
 		return
 	}
 	numPlayers := 0

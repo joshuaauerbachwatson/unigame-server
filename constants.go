@@ -20,8 +20,10 @@ package main
 // Constants used in the backend
 
 const (
-	// Minimum Length of a game token in characters
-	minGameTokenLen = 6
+	// Minimum Length of a "game token" in characters.  Note that what we call a game token here is a composite
+	// formed by the appid and what the client side calls a game token, separated by an underscore.  The
+	// minimum length here assumes that both the app id and the game token are minimum length.
+	minGameTokenLen = 12
 
 	// URL paths representing verbs
 	pathReset     = "/reset"
