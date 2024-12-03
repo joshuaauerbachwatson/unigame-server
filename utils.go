@@ -61,6 +61,12 @@ func isAdmin(w http.ResponseWriter, r *http.Request) bool {
 	return true
 }
 
+// Check validity of composite game token.  The part before the first underscore is the appId and the part after the
+// first underscore is the original game token chosen by the players.  The test here only approximates the exact test:
+// an appid is 5-15 characters consisting of lowercase alphabetics and hyphens.   A game token is 6 or more characters
+// consisting of alphamerics plus hyphen and underscore.  An exact test is not needed here because validation at the
+// server catches only internal errors (not user errors).  The API is not public and intruders are excluded by other
+// means.
 func isValidGameToken(gameToken string) bool {
 	return len(gameToken) >= minGameTokenLen && regexp.MustCompile(`^[a-zA-Z0-9_-]*$`).MatchString(gameToken)
 }
